@@ -53,6 +53,26 @@ int main(int argc, char* args[]) {
 	surface_bomb = IMG_Load("image/bomb.png");
 	texture_bomb = SDL_CreateTextureFromSurface(renderer, surface_bomb);
 
+	sprintf(scoretext, "Score : %d", score);
+	sprintf(highscoretext, "High score : %d", highscore);
+	sprintf(leveltext, "Level : %d", level);
+
+	TTF_Font* sans = TTF_OpenFont("font/COOPBL.TTF", 100);   //Load font 
+	SDL_Color black = { 0, 0, 0 };   //Set black color
+	SDL_Color white = { 255, 255, 255 };
+	SDL_Color red = { 255, 0, 0 };
+	SDL_Color blue = { 0, 155, 255 };
+	SDL_Surface* surface_score = TTF_RenderText_Solid(sans, scoretext, white);   //Create Variable for turn text
+	SDL_Texture* texture_score = SDL_CreateTextureFromSurface(renderer, surface_score);
+	SDL_Surface* surface_gameover = TTF_RenderText_Solid(sans, "Game Over", red);
+	SDL_Texture* texture_gameover = SDL_CreateTextureFromSurface(renderer, surface_gameover);
+	SDL_Surface* surface_highscore = TTF_RenderText_Solid(sans, highscoretext, white);
+	SDL_Texture* texture_highscore = SDL_CreateTextureFromSurface(renderer, surface_highscore);
+	SDL_Surface* surface_level = TTF_RenderText_Solid(sans, leveltext, white);
+	SDL_Texture* texture_level = SDL_CreateTextureFromSurface(renderer, surface_level);
+	SDL_Surface* surface_restart = TTF_RenderText_Solid(sans, "Press key down to restart", blue);
+	SDL_Texture* texture_restart = SDL_CreateTextureFromSurface(renderer, surface_restart);
+
 	while (status) {
 		while (SDL_PollEvent(&event)) {
 			if (event.type == SDL_QUIT) {
