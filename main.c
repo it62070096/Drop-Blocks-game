@@ -79,7 +79,7 @@ int main(int argc, char* args[]) {
 				status = 0;
 			}
 		}
-    	SDL_Rect menu0 = { 0, 0, 800, 600 }; // pos background
+    		SDL_Rect menu0 = { 0, 0, 800, 600 }; // pos background
 		SDL_Rect menu1 = { base_x, 530, 130, 10 }; // pos bar
 		SDL_Rect menu2 = { blockx, blocky, 40, 40 };  // pos block
 		SDL_Rect menu3 = { scorex, scorey, scorewidth, scorehieght }; // pos score
