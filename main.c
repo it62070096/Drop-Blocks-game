@@ -79,7 +79,7 @@ int main(int argc, char* args[]) {
 				status = 0;
 			}
 		}
-        if (SDL_PollEvent) {
+        	if (SDL_PollEvent) {
 			if (event.type == SDL_KEYDOWN) {
 				switch (event.key.keysym.sym) {
 				case SDLK_LEFT: // move bar to left side
