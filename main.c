@@ -79,6 +79,62 @@ int main(int argc, char* args[]) {
 				status = 0;
 			}
 		}
+        if (SDL_PollEvent) {
+			if (event.type == SDL_KEYDOWN) {
+				switch (event.key.keysym.sym) {
+				case SDLK_LEFT: // move bar to left side
+					if (count == 0) {
+						base_x -= 10;
+					}
+					break;
+				case SDLK_RIGHT: // move bar to right side 
+					if (count == 0) {
+						base_x += 10;
+					}
+					break;
+				case SDLK_DOWN: // restart game
+					if (count == 1) {
+						scorex = 680;
+						scorey = 50;
+						scorewidth = 100;
+						scorehieght = 50;
+						gameover_x = 800;
+						base_x = 320;
+						blocky = 0;
+						count = 0;
+						blockx = (rand() % (720 - 0 + 1) + 0);
+						score = 0;
+						highscorex = 580;
+						highscorey = 0;
+						levelx = 680;
+						level = 1;
+						restartx = 800;
+						dropbomb = (rand() % (3 - 0 + 1) + 0);
+						bombx = (rand() % (720 - 0 + 1) + 0);
+						bomby = 0;
+						sprintf(scoretext, "Score : %d", score);
+						surface_score = TTF_RenderText_Solid(sans, scoretext, white);
+						texture_score = SDL_CreateTextureFromSurface(renderer, surface_score);
+						sprintf(highscoretext, "High score : %d", highscore);
+						surface_highscore = TTF_RenderText_Solid(sans, highscoretext, white);
+						texture_highscore = SDL_CreateTextureFromSurface(renderer, surface_highscore);
+						sprintf(leveltext, "Level : %d", level);
+						surface_level = TTF_RenderText_Solid(sans, leveltext, white);
+						texture_level = SDL_CreateTextureFromSurface(renderer, surface_level);
+						speed = 2;
+					}
+					break;
+				case SDLK_UP: // start game
+					count = 0;
+					posmenu = 800;
+					highscorex = 580;
+					levelx = 680;
+					break;
+				default:
+					break;
+				}
+			}
+		}		
     		SDL_Rect menu0 = { 0, 0, 800, 600 }; // pos background
 		SDL_Rect menu1 = { base_x, 530, 130, 10 }; // pos bar
 		SDL_Rect menu2 = { blockx, blocky, 40, 40 };  // pos block
