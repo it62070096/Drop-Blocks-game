@@ -134,7 +134,84 @@ int main(int argc, char* args[]) {
 					break;
 				}
 			}
-		}		
+		}
+		if (base_x < 0 && count == 0) {
+			base_x = 0;
+		}
+
+		if (base_x > 680 && count == 0) {
+			base_x = 680;
+		}
+
+		if ((blocky >= 500 && blocky <= 540) && ((base_x - 40 <= blockx && base_x + 120 >= blockx) || (base_x == blockx))) {
+			blocky = 0;
+			blockx = (rand() % (720 - 0 + 1) + 0);
+			score += 1;
+			if (score % 10 == 0 && score != 0) {
+				speed += 1;
+				level += 1;
+				sprintf(leveltext, "Level : %d", level);
+				surface_level = TTF_RenderText_Solid(sans, leveltext, white);
+				texture_level = SDL_CreateTextureFromSurface(renderer, surface_level);
+			}
+			sprintf(scoretext, "Score : %d", score);
+			surface_score = TTF_RenderText_Solid(sans, scoretext, white);
+			texture_score = SDL_CreateTextureFromSurface(renderer, surface_score);
+			if (score > highscore) {
+				highscore += 1;
+				sprintf(highscoretext, "High score : %d", highscore);
+				surface_highscore = TTF_RenderText_Solid(sans, highscoretext, white);
+				texture_highscore = SDL_CreateTextureFromSurface(renderer, surface_highscore);
+			}
+		} // count score and update score
+
+		else if (blocky >= 600) {
+			count = 1;
+			gameover_x = 150;
+			scorex = 325;
+			scorey = 260;
+			scorewidth = 150;
+			scorehieght = 50;
+			base_x = 800;
+			highscorex = 270;
+			highscorey = 310;
+			levelx = 800;
+			restartx = 200;
+			bombx = 800;
+		} // game over
+
+		else if ((bomby >= 500 && bomby <= 540) && ((base_x - 40 <= bombx && base_x + 120 >= bombx) || (base_x == bombx))) {
+			count = 1;
+			gameover_x = 150;
+			scorex = 325;
+			scorey = 260;
+			scorewidth = 150;
+			scorehieght = 50;
+			base_x = 800;
+			highscorex = 270;
+			highscorey = 310;
+			levelx = 800;
+			restartx = 200;
+			bombx = 800;
+			blockx = 800;
+		} // game over
+
+		if (bomby >= 600) {
+			dropbomb = (rand() % (3 - 0 + 0) + 0);
+			if (dropbomb != 2) {
+				bombx = 800;
+				bomby = 0;
+			}
+			else {
+				bombx = (rand() % (720 - 0 + 0) + 0);
+				bomby = 0;
+			}
+		}
+
+		if (count == 0) {
+			blocky += speed;
+			bomby += speed;
+		} // speed drops
     		SDL_Rect menu0 = { 0, 0, 800, 600 }; // pos background
 		SDL_Rect menu1 = { base_x, 530, 130, 10 }; // pos bar
 		SDL_Rect menu2 = { blockx, blocky, 40, 40 };  // pos block
