@@ -11,19 +11,19 @@ Level จะขึ้นก็ต่อเมื่อผู้เล่นส�
 
 ## หน้า Menu ของตัวเกมส์
 
-<img src="" width="700px" height="500px">
+<img src="https://i.imgur.com/jyVS8Cl.png" width="700px" height="500px">
 
 ## หน้า Gameplay ของตัวเกมส์
 
-<img src="" width="700px" height="500px">
+<img src="https://i.imgur.com/3JXEmjF.jpg" width="700px" height="500px">
 
 ## หน้า Game over ของตัวเกมส์
 
-<img src="" width="700px" height="500px">
+<img src="https://i.imgur.com/fze5P5R.jpg" width="700px" height="500px">
 
 ## Poster
 
-<img src="" width="700px" height="500px">
+<img src="https://i.imgur.com/E86u9DQ.jpg" width="700px" height="1000px">
 
 ## VDO Present
 
