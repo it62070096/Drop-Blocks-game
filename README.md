@@ -27,7 +27,7 @@ Level จะขึ้นก็ต่อเมื่อผู้เล่นส�
 
 ## VDO Present
 
-[<img src="https://img.youtube.com/vi//maxresdefault.jpg" width="50%">](https://youtu.be/)
+[<img src="https://img.youtube.com/vi/4O1EvQIDieM/maxresdefault.jpg" width="50%">](https://youtu.be/4O1EvQIDieM)
 
 ## สมาชิก
 
